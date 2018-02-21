@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { RadialChart, Hint } from 'react-vis';
+import '../node_modules/react-vis/dist/style.css';
 //import Machine from './Machine.js';
 
 export default class Ring extends Component {
