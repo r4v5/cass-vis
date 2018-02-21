@@ -5,7 +5,7 @@ import '../node_modules/react-vis/dist/style.css';
 
 export default class Ring extends Component {
   state = {
-    value: false,
+    tooltip: false,
     nodes: [
       {angle: 2, radius: 10, innerRadius: 4},
       {angle: 2, radius: 10, innerRadius: 4},
@@ -13,17 +13,17 @@ export default class Ring extends Component {
     ]
   }
   render() {
-    const {value} = this.state;
+    const {tooltip} = this.state;
     return (
-      <div class="Ring">
+      <div className="Ring">
       <RadialChart
         data={this.state.nodes}
         height={300}
         width={300}
-        onValueMouseOver={v => this.setState({value: v})}
-        onSeriesMouseOut={v => this.setState({value: false})}
+        onValueMouseOver={v => this.setState({tooltip: v})}
+        onSeriesMouseOut={v => this.setState({tooltip: false})}
         >
-      {value && <Hint value={value}/>}
+      {tooltip && <Hint value={tooltip}/>}
       </RadialChart>
       </div>
     )
