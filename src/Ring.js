@@ -15,6 +15,7 @@ export default class Ring extends Component {
   render() {
     const {value} = this.state;
     return (
+      <div class="Ring">
       <RadialChart
         data={this.state.nodes}
         height={300}
@@ -24,6 +25,7 @@ export default class Ring extends Component {
         >
       {value && <Hint value={value}/>}
       </RadialChart>
+      </div>
     )
   }
 }
