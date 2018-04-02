@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { RadialChart, Hint } from 'react-vis';
 import '../node_modules/react-vis/dist/style.css';
-//import Machine from './Machine.js';
 
 export default class Ring extends Component {
   state = {
     tooltip: false,
     nodes: [
-      {angle: 2, radius: 10, innerRadius: 4},
-      {angle: 2, radius: 10, innerRadius: 4},
-      {angle: 2, radius: 10, innerRadius: 4}
+      {label: "node 1", subLabel: "node 1 details", angle: 1},
+      {label: "node 2", subLabel: "node 2 details", angle: 1},
+      {label: "node 3", subLabel: "node 3 details", angle: 1}
     ]
   }
   render() {
@@ -17,7 +16,9 @@ export default class Ring extends Component {
     return (
       <div className="Ring">
       <RadialChart
-        data={this.state.nodes}
+        data={this.props.nodes.map(node => (
+          {label: node.node_name, subLabel: node.details, innerRadius: 4, radius: 10, angle: node.size_on_disk}
+        ))}
         height={300}
         width={300}
         onValueMouseOver={v => this.setState({tooltip: v})}
